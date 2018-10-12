@@ -3,7 +3,7 @@
 #include <string.h>
 #include "genericLinkedList.h"
 
-genericListElement *createEl(void *data, size_t size, printSomething printFunc){
+genericListElement *createEl(void *info, size_t size, printer printFunc){
     
     genericListElement* ele = malloc(sizeof(genericListElement));
     
@@ -20,9 +20,9 @@ genericListElement *createEl(void *data, size_t size, printSomething printFunc){
         return NULL;
     }
     
-    memmove(dataPointer, data, size);
+    memmove(dataPointer, info, size);
     
-    ele->data = dataPointer;
+    ele->info = dataPointer;
     ele->size = size;
     ele->print = printFunc;
     ele->next = NULL;
@@ -45,9 +45,9 @@ int length(genericListElement *list) {
     
 }
 
-void push(genericListElement **list, void *data, size_t size, printer printFunc) {
+void push(genericListElement **list, void *info, size_t size, printer printFunc) {
     
-    genericLinkedElement *newEle = createEL(data, size, printFunc);
+    genericLinkedElement *newEle = createEL(info, size, printFunc);
     
     newEle-> next = *list;
     
@@ -65,7 +65,7 @@ genericListElement *pop(genericListElement **list) {
     return head;
 }
 
-void enqueue(genericListElement **list, vid *info, size_t size, printer printFunc) {
+void enqueue(genericListElement **list, void *info, size_t size, printer printFunc) {
     genericListElement *newEle = createEL(data, size, printFunc);
     
     newEle-> next = *list;
