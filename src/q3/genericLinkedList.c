@@ -86,3 +86,35 @@ genericListElement *dequeue(genericListElement *list) {
     return tailEle;
     
 }
+
+void traverse(genericListElement *beginning) {
+    genericListElement *currEle = beginning;
+    
+    while(currEle != NULL) {
+        currEle-> printFunc(currEle-> data);
+        currEle = currEle-> next;
+    }
+    
+}
+
+genericListElement* insertAfter(genericListElement* ele, void *info, size_t size, printer printFunc) {
+    
+    genericListElement* newEle = createEl(info, size, printFunc);
+    
+    genericListElement* nextEle = ele-> next;
+    
+    newEle-> next = next;
+    ele-> next = newEle;
+    
+    return newEle;
+    
+}
+
+void deleteAfter(genericListElement* afterEle) {
+    genericListElement* deleteEle = afterEle-> next;
+    genericListElement* newNextEle = deleteEle-> next;
+    afterEle-> next = newNextEle;
+    
+    free(deleteEle->info);
+    free(deleteEle);
+}
