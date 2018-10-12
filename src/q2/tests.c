@@ -2,6 +2,10 @@
 #include "tests.h"
 #include "linkedList.h"
 
+void stackTest() {
+    
+}
+
 void runTests(){
   printf("Tests running...\n");
   listElement* l = createEl("Test String (1).", 30);
