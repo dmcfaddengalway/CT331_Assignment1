@@ -60,7 +60,7 @@ int length(listElement *list) {
     listElement *current = list;
     int counter = 0;
     
-    //While current element is not empty
+    //While current pointer is not empty
     //continue increment counter and go to next element assinging it to current
     while (current != NULL) {
         counter++;
@@ -68,6 +68,7 @@ int length(listElement *list) {
     }
     
     return printf("# of elements in the list: %d \n", counter);
+    
 }
 
 void push(listElement **list, char *data, size_t size) {
@@ -86,7 +87,7 @@ listElement *pop(listElement **list) {
     
     //If head of list*, then make the list equal to the next member
     //of the struct the head points to (aka the next element)
-    if (headEle) {
+    if(headEle) {
         *list = headEle-> next;
     }
     
@@ -94,12 +95,12 @@ listElement *pop(listElement **list) {
     
 }
 
-void enqueue(listElement **list, char *data, size_t   size) {
+void enqueue(listElement **list, char *dataBits, size_t size) {
     
     //Crete new element and set to a pointer, then
     //get next element in list and assign it to the list pointer
     //and let the list pointer point to the new element created
-    listElement *newEle = createEl(data, size);
+    listElement *newEle = createEl(dataBits, size);
     newEle-> next = *list;
     *list = newEle;
     
@@ -108,13 +109,14 @@ void enqueue(listElement **list, char *data, size_t   size) {
 listElement *dequeue(listElement *list) {
     listElement *temp = list;
     
-    while( (temp-> next)-> next != NULL) {
+    //Go to element at the end aka teh one thats nextEle pointer is NULL
+    while((temp-> next)-> next != NULL) {
         temp = temp-> next;
     }
     
-    listElement *tail = temp->next;
-    temp->next = NULL;
+    listElement *tailEle = temp-> next;
+    temp-> next = NULL;
     
-    return tail;
+    return tailEle;
     
 }
