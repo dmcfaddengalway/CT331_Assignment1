@@ -73,7 +73,7 @@ void enqueue(genericListElement **list, vid *info, size_t size, printer printFun
     *list = newEle;
 }
 
-genericListElement *dequeue() {
+genericListElement *dequeue(genericListElement *list) {
     genericListElement *temp = list;
     
     while((temp-> next)-> next != NULL) {
