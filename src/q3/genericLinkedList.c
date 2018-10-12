@@ -3,6 +3,34 @@
 #include <string.h>
 #include "genericLinkedList.h"
 
+genericListElement *createEl(void *data, size_t size, printSomething printFunc){
+    
+    genericListElement* ele = malloc(sizeof(genericListElement));
+    
+    //Error in malloc
+    if(ele == NULL) {
+        return NULL;
+    }
+    
+    void *dataPointer = malloc(size);
+    
+    //Error in malloc, free up the space
+    if(dataPointer == NULL) {
+        free(e);
+        return NULL;
+    }
+    
+    memmove(dataPointer, data, size);
+    
+    ele->data = dataPointer;
+    ele->size = size;
+    ele->print = printFunc;
+    ele->next = NULL;
+    
+    return e;
+    
+}
+
 int length(genericListElement *list) {
     
     genericLinkedList *currEle = list;
@@ -45,30 +73,16 @@ void enqueue(genericListElement **list, vid *info, size_t size, printer printFun
     *list = newEle;
 }
 
-genericListElement *createEl(void *data, size_t size, printSomething printFunc){
+genericListElement *dequeue() {
+    genericListElement *temp = list;
     
-    genericListElement* ele = malloc(sizeof(genericListElement));
-    
-    //Error in malloc
-    if(ele == NULL) {
-        return NULL;
+    while((temp-> next)-> next != NULL) {
+        temp = temp-> next;
     }
     
-    void *dataPointer = malloc(size);
+    genericListElement *tailEle = temp-> next;
+    temp->next = NULL;
     
-    //Error in malloc, free up the space
-    if(dataPointer == NULL) {
-        free(e);
-        return NULL;
-    }
-    
-    memmove(dataPointer, data, size);
-    
-    ele->data = dataPointer;
-    ele->size = size;
-    ele->print = printFunc;
-    ele->next = NULL;
-    
-    return e;
+    return tailEle;
     
 }
