@@ -3,7 +3,8 @@
 #include <string.h>
 #include "genericLinkedList.h"
 
-int length() {
+int length(genericListElement *list) {
+    
     genericLinkedList *currEle = list;
     int counter = 0;
     
@@ -13,30 +14,43 @@ int length() {
     }
     
     return printf("# of elements in the list: %d \n", counter);
+    
 }
 
-void push() {
+void push(genericListElement **list, void *data, size_t size, printer printFunc) {
+    
     genericLinkedElement *newEle = createEL(data, size, printFunc);
+    
     newEle->next = *list;
+    
     *list = newEle;
+    
 }
 
 genericListElement *createEl(void *data, size_t size, printSomething printFunc){
-    genericListElement* e = malloc(sizeof(genericListElement));
-    if(e == NULL){
-        //malloc has had an error
-        return NULL; //return NULL to indicate an error.
+    
+    genericListElement* ele = malloc(sizeof(genericListElement));
+    
+    //Error in malloc
+    if(ele == NULL) {
+        return NULL;
     }
+    
     void *dataPointer = malloc(size);
-    if(dataPointer == NULL){
-        //malloc has had an error
-        free(e); //release the previously allocated memory
-        return NULL; //return NULL to indicate an error.
+    
+    //Error in malloc, free up the space
+    if(dataPointer == NULL) {
+        free(e);
+        return NULL;
     }
+    
     memmove(dataPointer, data, size);
-    e->data = dataPointer;
-    e->size = size;
-    e->print = printFunc; //dumb moment - don't forget
-    e->next = NULL;
+    
+    ele->data = dataPointer;
+    ele->size = size;
+    ele->print = printFunc;
+    ele->next = NULL;
+    
     return e;
+    
 }
