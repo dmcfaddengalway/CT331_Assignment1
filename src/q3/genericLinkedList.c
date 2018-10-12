@@ -10,7 +10,7 @@ int length(genericListElement *list) {
     
     while(currEle != NULL) {
         counter++;
-        currEle = currEle->next;
+        currEle = currEle-> next;
     }
     
     return printf("# of elements in the list: %d \n", counter);
@@ -21,10 +21,28 @@ void push(genericListElement **list, void *data, size_t size, printer printFunc)
     
     genericLinkedElement *newEle = createEL(data, size, printFunc);
     
-    newEle->next = *list;
+    newEle-> next = *list;
     
     *list = newEle;
     
+}
+
+genericListElement *pop(genericListElement **list) {
+    genericListElement *headEle = *list;
+    
+    if(head) {
+        *list = headEle-> next;
+    }
+    
+    return head;
+}
+
+void enqueue(genericListElement **list, vid *info, size_t size, printer printFunc) {
+    genericListElement *newEle = createEL(data, size, printFunc);
+    
+    newEle-> next = *list;
+    
+    *list = newEle;
 }
 
 genericListElement *createEl(void *data, size_t size, printSomething printFunc){
