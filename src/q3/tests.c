@@ -22,7 +22,18 @@ void runTests(){
 
     char p = "P";
     
-    genericLinkedElement *ele = createEle(&p, sizeof(char), &printChar);
+    genericListElement *ele = createEle(&p, sizeof(char), &printChar);
+    
+    traverse(ele);
+    
+    length(ele);
+    
+    char word[] = "Eggsalad";
+    genericListElement *ele2 = insertAfter(ele, &word, sizeof(word), &printStr);
+    
+    traverse(ele);
+    
+    length(ele);
 
     printf("\nTests complete.\n");
 }
