@@ -4,9 +4,9 @@
 typedef void (*printer) (void *info);
 
 typedef struct genericListElementStruct{
-    void *data;
+    void *info;
     size_t size;
-    prnter print;
+    printer printFunc;
     struct genericListElementStruct *next;
 } genericListElement;
 

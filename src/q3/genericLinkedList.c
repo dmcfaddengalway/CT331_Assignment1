@@ -16,7 +16,7 @@ genericListElement *createEl(void *info, size_t size, printer printFunc) {
     
     //Error in malloc, free up the space
     if(dataPointer == NULL) {
-        free(e);
+        free(ele);
         return NULL;
     }
     
@@ -24,16 +24,16 @@ genericListElement *createEl(void *info, size_t size, printer printFunc) {
     
     ele->info = dataPointer;
     ele->size = size;
-    ele->print = printFunc;
+    ele->printer = printFunc;
     ele->next = NULL;
     
-    return e;
+    return ele;
     
 }
 
 int length(genericListElement *list) {
     
-    genericLinkedList *currEle = list;
+    genericListElement *currEle = list;
     int counter = 0;
     
     while(currEle != NULL) {
@@ -47,7 +47,7 @@ int length(genericListElement *list) {
 
 void push(genericListElement **list, void *info, size_t size, printer printFunc) {
     
-    genericLinkedElement *newEle = createEL(info, size, printFunc);
+    genericListElement *newEle = createEL(info, size, printFunc);
     
     newEle-> next = *list;
     
@@ -58,15 +58,15 @@ void push(genericListElement **list, void *info, size_t size, printer printFunc)
 genericListElement *pop(genericListElement **list) {
     genericListElement *headEle = *list;
     
-    if(head) {
+    if(headEle) {
         *list = headEle-> next;
     }
     
-    return head;
+    return headEle;
 }
 
 void enqueue(genericListElement **list, void *info, size_t size, printer printFunc) {
-    genericListElement *newEle = createEL(data, size, printFunc);
+    genericListElement *newEle = createEL(info, size, printFunc);
     
     newEle-> next = *list;
     
@@ -91,7 +91,7 @@ void traverse(genericListElement *beginning) {
     genericListElement *currEle = beginning;
     
     while(currEle != NULL) {
-        currEle-> printFunc(currEle-> data);
+        currEle-> printFunc(currEle-> info);
         currEle = currEle-> next;
     }
     
@@ -101,10 +101,10 @@ genericListElement* insertAfter(genericListElement* ele, void *info, size_t size
     
     genericListElement* newEle = createEl(info, size, printFunc);
     
-    genericListElement* nextEle = ele-> next;
+    genericListElement* next = ele->next;
     
-    newEle-> next = next;
-    ele-> next = newEle;
+    newEle->next = next;
+    ele->next = newEle;
     
     return newEle;
     
