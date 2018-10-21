@@ -6,7 +6,7 @@ typedef void (*printer) (void *info);
 typedef struct genericListElementStruct{
     void *info;
     size_t size;
-    printer printFunc;
+    print printFunc;
     struct genericListElementStruct *next;
 } genericListElement;
 
