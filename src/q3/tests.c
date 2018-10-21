@@ -9,18 +9,10 @@ void runTests(){
   printf("\nTests complete.\n");
 }
 
-void printChar(void *data){
-    printf("%c\n", *(char*)data);
+void printChar(void *data) {
+    printf("%c\n", *(char)*data);
 }
 
-void printStr(void *data){
-    printf("%s\n", data);
-}
-
-void printInt(void *data){
-    printf("%d\n", *(int*)data);
-}
-
-void printFloat(void *data){
-    printf("%f\n", *(float*)data);
+void printStr() {
+    
 }
