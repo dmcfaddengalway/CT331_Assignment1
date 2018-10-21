@@ -3,7 +3,7 @@
 #include <string.h>
 #include "genericLinkedList.h"
 
-genericListElement *createEl(void *info, size_t size, printer printFunc){
+genericListElement *createEl(void *info, size_t size, printer printFunc) {
     
     genericListElement* ele = malloc(sizeof(genericListElement));
     
