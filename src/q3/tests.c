@@ -13,6 +13,6 @@ void printChar(void *data) {
     printf("%c\n", *(char)*data);
 }
 
-void printStr() {
-    
+void printStr(void *data) {
+    printf("%s\n", data);
 }
