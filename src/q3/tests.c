@@ -1,14 +1,6 @@
 #include <stdio.h>
 #include "genericLinkedList.h"
 
-void runTests(){
-  printf("Tests running...\n");
-
-  //...
-
-  printf("\nTests complete.\n");
-}
-
 void printChar(void *data) {
     printf("%c\n", *(char*)data);
 }
@@ -22,5 +14,15 @@ void printInt(void *data) {
 }
 
 void printFloat(void *data) {
-    printf("5f\n", *(float*)data);
+    printf("%f\n", *(float*)data);
+}
+
+void runTests(){
+    printf("Tests running...\n");
+
+    char p = "P";
+    
+    genericLinkedElement *ele = createEle(&p, sizeof(char), &printChar);
+
+    printf("\nTests complete.\n");
 }
