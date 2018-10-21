@@ -45,7 +45,7 @@ void stackTest() {
 
 void runTests(){
   printf("Tests running...\n");
-  listElement* l = createEl("Test String (1).", 30);
+  listElement* l = createEl("Test String (1)", 30);
   //printf("%s\n%p\n", l->data, l->next);
   //Test create and traverse
   traverse(l);
