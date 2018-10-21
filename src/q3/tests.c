@@ -21,4 +21,6 @@ void printInt(void *data) {
     printf("%d\n", *(int)*data);
 }
 
-void
+void printFloat(void *data) {
+    printf("5f\n", *(float)*data);
+}
