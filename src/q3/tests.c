@@ -34,6 +34,12 @@ void runTests(){
     traverse(ele);
     
     length(ele);
+    
+    int q = 19;
+    insertAfter(ele2, &q, sizeof(q), &printInt);
+    
+    traverse(ele);
+    length(ele);
 
     printf("\nTests complete.\n");
 }
