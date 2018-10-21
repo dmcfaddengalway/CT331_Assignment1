@@ -10,7 +10,7 @@ void runTests(){
 }
 
 void printChar(void *data) {
-    printf("%c\n", *(char)*data);
+    printf("%c\n", *(char*)data);
 }
 
 void printStr(void *data) {
@@ -18,9 +18,9 @@ void printStr(void *data) {
 }
 
 void printInt(void *data) {
-    printf("%d\n", *(int)*data);
+    printf("%d\n", *(int*)data);
 }
 
 void printFloat(void *data) {
-    printf("5f\n", *(float)*data);
+    printf("5f\n", *(float*)data);
 }
