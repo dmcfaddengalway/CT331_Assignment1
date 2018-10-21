@@ -9,11 +9,11 @@ char** e;
 int main(int arg, char* argc[]){
     printf("Hello assignment1.\n");
     
-    printf("%d \n", sizeof(a));
-    printf("%d \n", sizeof(b));
-    printf("%d \n", sizeof(c));
-    printf("%d \n", sizeof(d));
-    printf("%d", sizeof(e));
+    printf("%lu \n", sizeof(a));
+    printf("%lu \n", sizeof(b));
+    printf("%lu \n", sizeof(c));
+    printf("%lu \n", sizeof(d));
+    printf("%lu \n", sizeof(e));
     
     return 0;
 }
