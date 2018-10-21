@@ -16,3 +16,9 @@ void printChar(void *data) {
 void printStr(void *data) {
     printf("%s\n", data);
 }
+
+void printInt(void *data) {
+    printf("%d\n", *(int)*data);
+}
+
+void
