@@ -40,6 +40,12 @@ void runTests(){
     
     traverse(ele);
     length(ele);
+    
+    float r = 32.45;
+    insertAfter(ele2, &r, sizeof(r), &printFloat);
+    
+    traverse(ele);
+    length(ele);
 
-    printf("\nTests complete.\n");
+    printf("\n\nTests complete.\n");
 }
