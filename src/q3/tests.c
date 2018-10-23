@@ -22,7 +22,7 @@ void runTests(){
 
     char p = "P";
     
-    genericListElement *ele = createEle(&p, sizeof(char), &printChar);
+    genericListElement *ele = createEl(&p, sizeof(char), &printChar);
     
     traverse(ele);
     

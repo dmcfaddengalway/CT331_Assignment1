@@ -3,7 +3,7 @@
 
 typedef void (*printer) (void *info);
 
-typedef struct genericListElementStruct{
+typedef struct genericListElementStruct {
     void *info;
     size_t size;
     print printFunc;
