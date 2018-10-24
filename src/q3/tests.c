@@ -20,7 +20,7 @@ void printFloat(void *data) {
 void runTests(){
     printf("Tests running...\n");
 
-    char p = "P";
+    char p = 'P';
     
     genericListElement *ele = createEl(&p, sizeof(char), &printChar);
     

@@ -24,7 +24,7 @@ genericListElement *createEl(void *info, size_t size, printer printFunc) {
     
     ele->info = dataPointer;
     ele->size = size;
-    ele->print = printFunc;
+    ele->printer = printFunc;
     ele->next = NULL;
     
     return ele;
@@ -47,7 +47,7 @@ int length(genericListElement *list) {
 
 void push(genericListElement **list, void *info, size_t size, printer printFunc) {
     
-    genericListElement *newEle = createEL(info, size, printFunc);
+    genericListElement *newEle = createEl(info, size, printFunc);
     
     newEle->next = *list;
     
@@ -66,7 +66,7 @@ genericListElement *pop(genericListElement **list) {
 }
 
 void enqueue(genericListElement **list, void *info, size_t size, printer printFunc) {
-    genericListElement *newEle = createEL(info, size, printFunc);
+    genericListElement *newEle = createEl(info, size, printFunc);
     
     newEle->next = *list;
     
