@@ -24,7 +24,7 @@ genericListElement *createEl(void *info, size_t size, printer printFunc) {
     
     ele->info = dataPointer;
     ele->size = size;
-    ele->printer = printFunc;
+    ele->printFunc = printFunc;
     ele->next = NULL;
     
     return ele;
