@@ -74,7 +74,7 @@ int length(listElement *list) {
         current = current-> next;
     }
     
-    return printf("# of elements in the list: %d \n", counter);
+    return counter;
     
 }
 
@@ -84,7 +84,12 @@ void push(listElement **list, char *data, size_t size) {
     //get next element and assign it to the list pointer
     //and let the list point point to the new element created
     listElement *newEle = createEl(data, size);
-    newEle-> next = *list;
+    
+    if (newEle == NULL) {
+        exit(0);
+    }
+    
+    newEle->next = *list;
     *list = newEle;
     
 }
@@ -102,28 +107,27 @@ listElement *pop(listElement **list) {
     
 }
 
-void enqueue(listElement **list, char *dataBits, size_t size) {
+void enqueue(listElement** list, char* info, size_t size) {
+    listElement* newHeadEle = createEl(info, size);
     
-    //Crete new element and set to a pointer, then
-    //get next element in list and assign it to the list pointer
-    //and let the list pointer point to the new element created
-    listElement *newEle = createEl(dataBits, size);
-    newEle-> next = *list;
-    *list = newEle;
-    
-}
-
-listElement *dequeue(listElement *list) {
-    listElement *temp = list;
-    
-    //Go to element at the end aka teh one thats nextEle pointer is NULL
-    while((temp-> next)-> next != NULL) {
-        temp = temp-> next;
+    if (newHeadEle == NULL) {
+        exit(0);
     }
     
-    listElement *tailEle = temp-> next;
-    temp-> next = NULL;
+    newHeadEle->next = *list;
+    *list = newHeadEle; //placing the element at the head of the list
+}
+
+listElement* dequeue(listElement* elementList) {
+    listElement* currEle = elementList;
     
-    return tailEle;
+    //while elements in queue, loop through
+    while((currEle->next)->next != NULL) {
+        currEle = currEle->next;
+    }
     
+    listElement* temp = currEle->next;
+    currEle->next = NULL;
+    
+    return temp;
 }

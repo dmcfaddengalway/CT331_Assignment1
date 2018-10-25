@@ -43,7 +43,7 @@ void stackTest() {
     length(l);
 }
 
-void runTests(){
+void runTests() {
     printf("Tests running...\n");
     listElement* l = createEl("Test String (1)", 30);
     //printf("%s\n%p\n", l->data, l->next);
@@ -61,25 +61,42 @@ void runTests(){
     deleteAfter(l);
     traverse(l);
     
-    length(l2);
+    //Test length
+    int len = length(l2);
+    printf("# of elements in the list: %d", len);
     
-    listElement* l3 = createEl("push 1", 30);
-    push(&l3, "push 2", 30);
-    printf("item pushed: ");
+    printf("\n\n");
+    
+    //PUSH
+    listElement* l3 = createEl("push ele #1", 30);
+    push(&l3, "push ele #2", 30);
+    printf("Item pushed: ");
     traverse(l3);
     
-    printf("item popped: ");
+    printf("\n");
+    
+    //POP
+    printf("Item popped: ");
     pop(&l3);
     traverse(l3);
     
-    listElement* l4 = createEl("enqueue 1", 30);
-    enqueue(&l4, "enqueue 2", 30);
-    printf("item enqueued");
+    printf("\n");
+    
+    //ENQUEUE
+    listElement* l4 = createEl("enqueue ele #1", 30);
+    enqueue(&l4, "enqueue ele #2", 30);
+    printf("Item enqueued: ");
     traverse(l4);
     
-    printf("item dequeued");
+    printf("\n");
+    
+    //DEQUEUE
+    printf("Item dequeued: ");
     dequeue(&l4);
     traverse(l4);
-
+    
+    printf("\n");
+    
+    
     printf("\nTests complete.\n");
 }
