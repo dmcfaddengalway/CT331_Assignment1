@@ -91,7 +91,7 @@ void traverse(genericListElement *beginning) {
     genericListElement *currEle = beginning;
     
     while(currEle != NULL) {
-        currEle-> printFunc(currEle->info);
+        currEle->printFunc(currEle->info);
         currEle = currEle->next;
     }
     
